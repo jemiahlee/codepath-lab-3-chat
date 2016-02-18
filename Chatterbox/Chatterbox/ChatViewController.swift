@@ -13,6 +13,7 @@ class ChatViewController: UIViewController {
 
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var messageField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
     
     @IBAction func sendMessage(sender: AnyObject) {
         let text = messageField.text
@@ -46,6 +47,29 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        let query = PFQuery(className:"Message_iOSFeb2016")
+        query.whereKey("username", equalTo:"kanch")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) texts.")
+                // Do something with the found objects
+                if let objects = objects {
+                    for object in objects {
+                        print(object.objectId)
+                    }
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
 
         // Do any additional setup after loading the view.
     }
