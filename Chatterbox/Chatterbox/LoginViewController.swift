@@ -15,7 +15,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-       override func viewDidLoad() {
+    var chatViewController = ChatViewController()
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -27,18 +29,19 @@ class LoginViewController: UIViewController {
 
     @IBAction func onLogin(sender: AnyObject) {
         
-        var username = usernameTextField.text
-        var password = passwordTextField.text
+        let username = usernameTextField.text
+        let password = passwordTextField.text
         
         PFUser.logInWithUsernameInBackground( username!, password: password!) {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
-                print("After login")
+                self.presentViewController(self.chatViewController, animated: true, completion: {
+                    print("presenting the controller!")
+                })
             } else {
                 let errorString = error!.userInfo["error"] as? NSString
                 
                 let alertController = UIAlertController(title: "Error", message: errorString! as String, preferredStyle: .Alert)
-                print ("Inside Error block")
                 
                 // create an OK action
                 let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
@@ -58,14 +61,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onSignup(sender: AnyObject) {
-    
-        var user = PFUser()
+        let user = PFUser()
         user.username = usernameTextField.text
         user.password = passwordTextField.text
         user.email = emailTextField.text
-        
-        // other fields can be set just like with PFObject
-      //  user["phone"] = "415-392-0202"
         
         user.signUpInBackgroundWithBlock {
             (succeeded: Bool, error: NSError?) -> Void in
@@ -86,12 +85,11 @@ class LoginViewController: UIViewController {
                     // optional code for what happens after the alert controller has finished presenting
                 }
                 
-                  } else {
-                // Hooray! Let them use the app now.
+            } else {
+                self.presentViewController(self.chatViewController, animated: true, completion: {
+                })
             }
         }
     }
-
-
 }
 

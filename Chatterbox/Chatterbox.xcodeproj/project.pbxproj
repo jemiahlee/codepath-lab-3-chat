@@ -12,6 +12,7 @@
 		452F16751C756E9A0062AE11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452F16731C756E9A0062AE11 /* Main.storyboard */; };
 		452F16771C756E9A0062AE11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 452F16761C756E9A0062AE11 /* Assets.xcassets */; };
 		452F167A1C756E9A0062AE11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452F16781C756E9A0062AE11 /* LaunchScreen.storyboard */; };
+		452F16821C7577450062AE11 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452F16811C7577450062AE11 /* ChatViewController.swift */; };
 		8BA8FD2C93FB343438C8CF8D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B811D0B67DB71A99102F92E /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 		452F16761C756E9A0062AE11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		452F16791C756E9A0062AE11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		452F167B1C756E9A0062AE11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		452F16811C7577450062AE11 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		47AC2EE1559F15629DE80925 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		91CCA1BE0A683D71FAAF8C7F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +69,7 @@
 				452F16761C756E9A0062AE11 /* Assets.xcassets */,
 				452F16781C756E9A0062AE11 /* LaunchScreen.storyboard */,
 				452F167B1C756E9A0062AE11 /* Info.plist */,
+				452F16811C7577450062AE11 /* ChatViewController.swift */,
 			);
 			path = Chatterbox;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				452F16721C756E9A0062AE11 /* LoginViewController.swift in Sources */,
+				452F16821C7577450062AE11 /* ChatViewController.swift in Sources */,
 				452F16701C756E9A0062AE11 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
