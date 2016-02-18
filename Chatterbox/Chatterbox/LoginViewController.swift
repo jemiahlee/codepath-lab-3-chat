@@ -26,6 +26,35 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func onLogin(sender: AnyObject) {
+        
+        var username = usernameTextField.text
+        var password = passwordTextField.text
+        
+        PFUser.logInWithUsernameInBackground( username!, password: password!) {
+            (user: PFUser?, error: NSError?) -> Void in
+            if user != nil {
+                print("After login")
+            } else {
+                let errorString = error!.userInfo["error"] as? NSString
+                
+                let alertController = UIAlertController(title: "Error", message: errorString! as String, preferredStyle: .Alert)
+                print ("Inside Error block")
+                
+                // create an OK action
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                    // handle response here.
+                }
+                // add the OK action to the alert controller
+                alertController.addAction(OKAction)
+                
+                self.presentViewController(alertController, animated: true) {
+                    // optional code for what happens after the alert controller has finished presenting
+                }
+
+            }
+        }
+
+        
     }
     
     @IBAction func onSignup(sender: AnyObject) {
